@@ -71,6 +71,28 @@ void insere_lista_final(Lista* lista, int valor)
     }
 }
 
+void insere_lista_pos(Lista* lista, int posicao, int valor)
+{
+    if(lista_vazia(lista)) return;
+    if(posicao == 0) insere_lista_inicio(lista, valor);
+    int tam = tamanho_lista(lista);
+    if(posicao >= tam) exit(1);
+    if(posicao == tam-1) insere_lista_final(lista, valor);
+
+    elemento *elem = malloc(sizeof(elemento)), *pos = *lista;
+    elem->dado = valor;
+
+    while (posicao > 1)
+    {
+        pos = pos->proximo;
+        posicao--;
+    }
+    
+    elem->proximo = pos->proximo;
+    pos->proximo = elem;
+
+}
+
 int lista_vazia(Lista* lista)
 {
     return (lista == NULL || *lista == NULL) ? 1 : 0;
@@ -146,4 +168,24 @@ void remove_lista_final(Lista* lista)
         free(elem);
     }
     
+}
+
+void remove_lista_posicao(Lista* lista, int posicao)
+{
+    if(lista_vazia(lista)) return;
+    if(posicao == 0) remove_lista_inicio(lista);
+    int tam = tamanho_lista(lista);
+    if(posicao >= tam) exit(1);
+
+    elemento* pos = *lista;
+
+    while (posicao > 1)
+    {
+        pos = pos->proximo;
+        posicao--;
+    }
+    
+    elemento* aux = pos->proximo;
+    pos->proximo = aux->proximo;
+    free(aux);
 }
