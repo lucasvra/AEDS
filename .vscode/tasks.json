@@ -5,7 +5,8 @@
             "label": "C/C++: gcc arquivo de build ativo",
             "command": "/usr/bin/gcc",
             "args": [
-                "-g",
+                "-c",
+                "-I${fileDirname}",
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
