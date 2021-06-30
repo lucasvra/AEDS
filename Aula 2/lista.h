@@ -7,7 +7,12 @@ typedef struct elemento
     struct elemento *proximo;
 } elemento;
 
-typedef struct elemento* Lista;
+typedef elemento* Lista;
+
+typedef struct Lista2
+{
+    elemento* inicio;
+} Lista2;
 
 Lista* cria_lista();
 void libera_lista(Lista* lista);
