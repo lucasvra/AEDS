@@ -133,6 +133,7 @@ int altura_arvore(Arvore* arvore)
     int alt_dir = altura_arvore(&((*arvore)->dir));
 
     return (alt_esq > alt_dir ? alt_esq : alt_dir) + 1;
+
 }
 
 int arvore_vazia(Arvore* arvore)
