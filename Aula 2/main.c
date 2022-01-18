@@ -32,7 +32,7 @@ int xxxxxx_xxxxx(Lista* lista, int valor)
 
 int elemento_pos(Lista* lista, int n)
 {
-    if(lista_vazia(lista) || n > 0) exit(1);
+    if(lista_vazia(lista) || n < 0) exit(1);
 
     elemento *elem = *lista;
     while (elem != NULL && n > 0)
